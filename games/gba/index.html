@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GBA Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 
+<h3>Game Boy Advance Web</h3>
+
+<input type="file" id="rom" accept=".gba">
+
+<canvas id="screen"></canvas>
+
+<script src="emulator/gba.js"></script>
+<script>
+  document.getElementById("rom").addEventListener("change", e => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      gba.loadRom(reader.result);
+      gba.run();
+    };
+    reader.readAsArrayBuffer(file);
+  });
+</script>
+
+</body>
+</html>
