@@ -1,1 +1,7 @@
-
+[
+  {
+    "name": "Game Boy Advance (Web)",
+    "icon": "images/icons/gba.png",
+    "url": "games/gba/index.html"
+  }
+]
